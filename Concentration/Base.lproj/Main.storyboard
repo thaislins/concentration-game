@@ -60,7 +60,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="flipCountLabel" destination="gIf-DN-ZEk" id="l8X-Lf-X9e"/>
+                        <outlet property="flipCountLabel" destination="gIf-DN-ZEk" id="zSN-Bb-ayT"/>
+                        <outletCollection property="cards" destination="DMA-kj-Wm5" collectionClass="NSMutableArray" id="ceh-84-e22"/>
+                        <outletCollection property="cards" destination="dcY-gp-uMk" collectionClass="NSMutableArray" id="Mx2-Xy-R06"/>
+                        <outletCollection property="cards" destination="efx-jP-1Nx" collectionClass="NSMutableArray" id="nYv-aC-nP2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
