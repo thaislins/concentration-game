@@ -12,8 +12,12 @@ class ViewController: UIViewController {
     
     @IBOutlet var cards: Array<UIButton>!
     @IBOutlet weak var flipCountLabel: UILabel!
-    var flipCount = 0
     var mapCards = [UIButton : String]()
+    var flipCount = 0 {
+        didSet {
+            flipCountLabel.text = "Flips: \(flipCount)"
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +25,9 @@ class ViewController: UIViewController {
             mapCards[item] = item.currentTitle
         }
     }
-
+    
     @IBAction func touchCard(_ sender: UIButton) {
         flipCount += 1
-        flipCountLabel.text = "Flips: " + String(flipCount)
         flipCard(withEmoji: sender.currentTitle, on: sender)
     }
     
