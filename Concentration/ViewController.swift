@@ -10,18 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var flipCountLabel: UILabel!
+    var flipCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     @IBAction func touchCard(_ sender: UIButton) {
-        flipCard(withEmoji: "👻", on: sender)
+        flipCount += 1
+        flipCountLabel.text = "Flips: " + String(flipCount)
+        flipCard(withEmoji: sender.currentTitle, on: sender)
     }
     
-    func flipCard(withEmoji emoji: String, on button: UIButton) {
-        let x = button.currentTitle
-        if x == emoji {
+    func flipCard(withEmoji emoji: String?, on button: UIButton) {
+        print("flipCard(withEmoji: \(emoji))" )
+        if button.currentTitle != "" {
             button.setTitle("", for: UIControl.State.normal)
             button.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
         } else {
