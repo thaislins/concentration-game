@@ -13,4 +13,15 @@ struct Card {
     var id : Int
     var isFaceUp = false
     var isMatched = false
+    
+    static var identifierFactory = 0
+    
+    static func getUniqueId() -> Int {
+        identifierFactory += 1
+        return identifierFactory
+    }
+    
+    init() {
+        self.id = Card.getUniqueId()
+    }
 }
