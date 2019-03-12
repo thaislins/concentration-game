@@ -133,12 +133,20 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Xo-Fx-bBL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYR-8z-8Om">
+                                <rect key="frame" x="121" y="488" width="133" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Restart"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="gIf-DN-ZEk" id="zSN-Bb-ayT"/>
+                        <outlet property="restartButton" destination="uYR-8z-8Om" id="WFx-ri-oiQ"/>
                         <outletCollection property="cards" destination="DMA-kj-Wm5" collectionClass="NSMutableArray" id="ceh-84-e22"/>
                         <outletCollection property="cards" destination="u7t-Tv-RyY" collectionClass="NSMutableArray" id="LX2-Ev-fMa"/>
                         <outletCollection property="cards" destination="NTI-8J-tsn" collectionClass="NSMutableArray" id="p0R-qc-mRT"/>

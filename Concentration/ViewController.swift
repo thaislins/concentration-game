@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     lazy var game = Concentration(numberOfPairs: (cards.count + 1) / 2)
     @IBOutlet var cards: Array<UIButton>!
+    @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var flipCountLabel: UILabel!
     var emojiChoices = ["👻", "🧛🏼‍♀️", "🎃", "🦇", "🍭", "🍎"]
     var gameOver = false
@@ -24,6 +25,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        restartButton.layer.cornerRadius = 5.0
+        restartButton.isHidden = true
     }
     
     @IBAction func touchCard(_ sender: UIButton) {
@@ -53,11 +56,12 @@ class ViewController: UIViewController {
     }
     
     func finishGame() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
             for card in self.cards {
                 card.setTitle("", for: UIControl.State.normal)
                 card.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0)
             }
+            self.restartButton.isHidden = false
         })
     }
     
