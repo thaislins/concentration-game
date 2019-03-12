@@ -26,8 +26,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchCard(_ sender: UIButton) {
-        flipCount += 1
-        if let cardNumber = cards.index(of: sender) {
+        if let cardNumber = cards.index(of: sender), sender.backgroundColor != #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) {
+            flipCount += 1
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
         }
