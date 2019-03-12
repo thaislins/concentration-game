@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var cards: Array<UIButton>!
     @IBOutlet weak var flipCountLabel: UILabel!
     var emojiChoices = ["👻", "🧛🏼‍♀️", "🎃", "🦇", "🍭", "🍎"]
+    var gameOver = false
     var emoji = [Int: String]()
     var flipCount = 0 {
         didSet {
@@ -30,13 +31,17 @@ class ViewController: UIViewController {
             flipCount += 1
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
+            if gameOver { finishGame() }
         }
     }
     
     func updateViewFromModel() {
+        var matchedCardCount = 0
         for index in cards.indices {
             let button = cards[index]
             let card = game.cards[index]
+            matchedCardCount += card.isMatched ? 1 : 0
+            gameOver = matchedCardCount == cards.count ? true : false
             if card.isFaceUp {
                 button.setTitle(emoji(for: card), for: UIControl.State.normal)
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -45,6 +50,15 @@ class ViewController: UIViewController {
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
             }
         }
+    }
+    
+    func finishGame() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            for card in self.cards {
+                card.setTitle("", for: UIControl.State.normal)
+                card.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0)
+            }
+        })
     }
     
     func emoji(for card: Card) -> String {
