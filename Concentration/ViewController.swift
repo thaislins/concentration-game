@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        game.startGame()
         restartButton.layer.cornerRadius = 5.0
         restartButton.isHidden = true
     }
@@ -35,6 +36,17 @@ class ViewController: UIViewController {
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
             if gameOver { finishGame() }
+        }
+    }
+    
+    @IBAction func restartGame(_ sender: UIButton) {
+        flipCount = 0
+        restartButton.isHidden = true
+        for index in cards.indices {
+            game.startGame()
+            let button = cards[index]
+            button.setTitle("", for: UIControl.State.normal)
+            button.backgroundColor =  #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
         }
     }
     
@@ -56,6 +68,7 @@ class ViewController: UIViewController {
     }
     
     func finishGame() {
+        gameOver = false
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
             for card in self.cards {
                 card.setTitle("", for: UIControl.State.normal)

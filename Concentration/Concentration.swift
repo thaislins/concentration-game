@@ -18,8 +18,19 @@ class Concentration {
             let card = Card()
             cards += [card, card]
         }
-        
+    }
+    
+    func startGame() {
+        indexOfOnlyFaceUpCard = nil
         cards.shuffle()
+        resetCards()
+    }
+    
+    func resetCards() {
+        for index in cards.indices {
+            cards[index].isFaceUp = false
+            cards[index].isMatched = false
+        }
     }
     
     func chooseCard(at index: Int) {
