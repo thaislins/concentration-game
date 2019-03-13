@@ -49,6 +49,31 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B870E8FD2238D973001212E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B870E8FB2230C7DA001212E6 /* Card.swift */,
+				B870E8F92230C6CA001212E6 /* Concentration.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B870E8FE2238D97D001212E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B8F73B1521CB6DE000732DB9 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B870E8FF2238D98E001212E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8F73B1721CB6DE000732DB9 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B8F73B0721CB6DE000732DB9 = {
 			isa = PBXGroup;
 			children = (
@@ -69,10 +94,9 @@
 			isa = PBXGroup;
 			children = (
 				B870E8F8222DD447001212E6 /* Supporting Files */,
-				B8F73B1521CB6DE000732DB9 /* ViewController.swift */,
-				B870E8FB2230C7DA001212E6 /* Card.swift */,
-				B870E8F92230C6CA001212E6 /* Concentration.swift */,
-				B8F73B1721CB6DE000732DB9 /* Main.storyboard */,
+				B870E8FF2238D98E001212E6 /* View */,
+				B870E8FE2238D97D001212E6 /* Controller */,
+				B870E8FD2238D973001212E6 /* Model */,
 				B8F73B1F21CB6DE100732DB9 /* Info.plist */,
 			);
 			path = Concentration;
